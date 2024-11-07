@@ -68,20 +68,4 @@ desafiosRoutes.put("/:id", (req, res) => {
     });
 });
 
-desafiosRoutes.delete("/:id", (req, res) => {
-    const { id } = req.params;
-    const desafio = desafiosRepository.deleteDesafio(id);
-
-    if (!desafio) {
-        return res.status(404).json({
-            message: `Desafio com id ${id} não encontrado!`,
-        });
-    }
-
-    return res.status(200).json({
-        message: `Desafio com id ${id} deletado com sucesso!`,
-        desafio,
-    });
-});
-
 export default desafiosRoutes;
