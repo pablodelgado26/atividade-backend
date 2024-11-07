@@ -1,34 +1,34 @@
 import { Router } from "express";
 import UsersRepository from "../models/users/UsersRepository.js";
 
-const usuariosRoutes = Router();
+const desafiosRoutes = Router();
 
 const usersRepository = new UsersRepository();
 
-usuariosRoutes.get("/", (req, res) => {
-    const usuarios = usersRepository.getALLUsers();
+desafiosRoutes.get("/", (req, res) => {
+    const desafios = usersRepository.getALLUsers();
 
     return res.status(200).json({
         messege: 
-        usuarios.length == 0 
+        desafios.length == 0 
         ? "Nenhum desafio de bem-estar cadastrados!" 
-        : `total de usuários cadastrados: ${usuarios.length}`,	 
-        usuarios,            
+        : `total de usuários cadastrados: ${desafios.length}`,	 
+        desafios,            
     });
 });
 
-usuariosRoutes.post("/", (req, res) => {
-    const { name, email, password } = req.body;
+desafiosRoutes.post("/", (req, res) => {
+    const { descricao , nivelDificuldade,objetivosDiarias  } = req.body;
 
-    const usuario = usersRepository.addUser(name, email, password);
+    const desafio = usersRepository.addUser(name, email, password);
 
     return res.status(201).json({
-        messege: "Usuário cadastrado com sucesso!",
-        usuario,
+        messege: "Desafio de bem-estar cadastrado!",
+        desafio,
     });
 });
 
-usuariosRoutes.get("/:id", (req, res) => {
+desafiosRoutes.get("/:id", (req, res) => {
     const { id } = req.params;
     const user = usersRepository.getUserById(id);
 
@@ -45,7 +45,7 @@ usuariosRoutes.get("/:id", (req, res) => {
 });
 
 
-usuariosRoutes.put("/:id", (req, res) => {
+desafiosRoutes.put("/:id", (req, res) => {
     const { id } = req.params;
     const { name, email, password } = req.body;
 
@@ -64,7 +64,7 @@ usuariosRoutes.put("/:id", (req, res) => {
 });
 
 
-usuariosRoutes.delete("/:id", (req, res) => {
+desafiosRoutes.delete("/:id", (req, res) => {
     const { id } = req.params;
     const user = usersRepository.deleteUser(id);
 
@@ -81,4 +81,4 @@ usuariosRoutes.delete("/:id", (req, res) => {
 
 });    
 
-export default usuariosRoutes;
+export default desafiosRoutes;
