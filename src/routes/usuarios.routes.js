@@ -11,7 +11,7 @@ usuariosRoutes.get("/", (req, res) => {
     return res.status(200).json({
         messege: 
         usuarios.length == 0 
-        ? "Nenhum usuário cadastrado" 
+        ? "Nenhum desafio de bem-estar cadastrados!" 
         : `total de usuários cadastrados: ${usuarios.length}`,	 
         usuarios,            
     });

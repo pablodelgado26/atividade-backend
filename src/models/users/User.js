@@ -3,7 +3,7 @@ class User {
         this.id = this.generateId(); 
         this.descricao = descricao;
         this.nivelDificuldade = nivelDificuldade;
-        this.objetivosDiarias = objetivosDiarias;
+        this.password = password;
     }
 
     generateId(){
