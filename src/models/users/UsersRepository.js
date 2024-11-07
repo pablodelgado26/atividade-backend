@@ -15,6 +15,19 @@ class UsersRepository {
         return newUser;
     }
 
+    validateDesafio(descricao, nivelDificuldade, objetivosDiarias) {
+        if (!descricao || !nivelDificuldade   ) {
+            return false;
+        }
+
+        else if (nivelDificuldade == 'baixo' || nivelDificuldade == 'medio' || nivelDificuldade == 'alto') {
+            return false;
+        }
+
+        return true;
+         
+    }
+
     getUserById(id) {
         const user = this.users.find((U) => U.id == id);
         return user;
