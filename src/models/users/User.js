@@ -1,9 +1,9 @@
 class User {
-    constructor(name, email, password){
+    constructor( descricao , nivelDificuldade,objetivosDiarias {
         this.id = this.generateId(); 
-        this.name = name;
-        this.email = email;
-        this.password = password;
+        this.descricao = descricao;
+        this.nivelDificuldade = nivelDificuldade;
+        this.objetivosDiarias = objetivosDiarias;
     }
 
     generateId(){
